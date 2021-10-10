@@ -1,8 +1,10 @@
 package com.epam.brest;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 public class Main {
 
     public static void main(String[] arg) {
-        System.out.println("Hello!");
+        showMessageDialog(null, "Hello!");
     }
 }
