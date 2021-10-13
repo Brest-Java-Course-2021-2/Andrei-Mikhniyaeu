@@ -7,7 +7,7 @@ package com.epam.brest;
 //  priceKm - price per kilometer of delivery
 //  priceKg - price per kilogram of delivery
 //
-//  TODO: In next version make user choice menu as function.
+//
 
 import com.epam.brest.calc.CalcImpl;
 
@@ -17,24 +17,17 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        BigDecimal weight;
-        BigDecimal distance;
-        BigDecimal priceKm;
-        BigDecimal priceKg;
-        BigDecimal deliveryCost;
+        BigDecimal weight, distance, priceKm, priceKg, deliveryCost;
 
         boolean loop = true;
        System.out.println("Программа рассчёта стоимости достаки");
         try (Scanner scanner = new Scanner(System.in)) {
             while (loop) {
-                System.out.println("Введите вес кг:");
-                weight = scanner.nextBigDecimal();
-                System.out.println("Введите расстояние км");
-                distance = scanner.nextBigDecimal();
-                System.out.println("Введите Цену за километр" );
-                priceKm = scanner.nextBigDecimal();
-                System.out.println("Введите Цену за килограмм");
-                priceKg = scanner.nextBigDecimal();
+
+                weight = getValueFromConsole(scanner, "Введите вес кг:");
+                distance = getValueFromConsole(scanner, "Введите расстояние км");
+                priceKm = getValueFromConsole(scanner, "Введите Цену за километр");
+                priceKg = getValueFromConsole(scanner, "Введите Цену за килограмм");
 
                 if (weight != null && weight.compareTo(BigDecimal.ZERO) > 0
                         && priceKg != null && priceKg.compareTo(BigDecimal.ZERO) > 0
@@ -68,5 +61,12 @@ public class Main {
             System.out.format("Ошибочный ввод, свяжитесь с медеджером доставки. Программа завершена.");
 
         }
+    }
+
+    private static BigDecimal getValueFromConsole(Scanner scanner, String s) {
+        BigDecimal data;
+        System.out.println(s);
+        data = scanner.nextBigDecimal();
+        return data;
     }
 }
