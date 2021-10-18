@@ -13,6 +13,8 @@ public class CalcImpl implements Calc {
         this.distance = distance;
         this.priceKm = priceKm;
         this.priceKg = priceKg;
+
+
     }
 
 
